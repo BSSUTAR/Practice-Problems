@@ -61,7 +61,7 @@ void Stack::pop()
 	{
 	//if stack is not empty then pop the top item.
 		pop_data=items[top];
-		top--;
+		top--;//decrease pointer to show next top item.
 		cout<<"Popped Item is "<<pop_data<<endl;
 	}
 	else
@@ -70,22 +70,26 @@ void Stack::pop()
 	}
 }
 
+//check whether stack is empty
 int Stack::is_empty()
 {
+	//if top points to nothing i.e -1 then stack is empty
 	if(top==-1)
 		return 1;
 	else 
-		return 0;
+		return 0;//stack is not empty
 }
 
+//check whether stack is full.
 int Stack::is_full()
 {
+	//if top value equals max size then stack is full
 	if(top==100-1)
 		return 1;
 	else 
-		return 0;
+		return 0;//stack is not full
 }
-
+//show stack items.
 void Stack::show()
 {
 	int i=0;
@@ -98,30 +102,32 @@ void Stack::show()
 	}
 	else
 	{
+	//stack is empty here
 		cout<<"Stack is empty"<<endl;
 	}
 }
 int main()
 {
-	Stack s;
-	int choice,data;
+	Stack s;//create stack instance
+	int choice=0,data=0;
 	while(1)
 	{
+	//give options for user to operation on stack
 		cout<<"1. Push 2.Pop 3.Show 4.Exit"<<endl;
 		cin>>choice;
 		switch(choice)
 		{
-			case 1:cout<<"Enter Data to push "<<endl;
+			case 1: cout<<"Enter Data to push "<<endl;
 				cin>>data;
 				s.push(data);
 				break;
-			case 2:s.pop();
+			case 2: s.pop();
 				break;
-			case 3:s.show();
+			case 3: s.show();
 				break;
-			case 4:return 0;
+			case 4: return 0;
 				break;
-			default:cout<<"No choice entered";
+			default:cout<<"No choice entered"<<endl;//Default choice
 		}
 	}
 	return 0;
